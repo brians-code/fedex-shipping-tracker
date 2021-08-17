@@ -1,0 +1,16 @@
+{
+  "name": "services",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently --names \"KitTracker,JsonServer,FedExTracker\" -c \"bgBlue.bold,bgGreen.bold,bgYellow.bold\" \"npm start --prefix track-kits\" \"json-server --host 0.0.0.0 --watch ./db.json\" \"node ./fedex-tracker/app.js\"",
+    "install-all": "npm i && concurrently --names \"KitTracker,JsonServer,FedExTracker\" -c \"bgBlue.bold,bgGreen.bold,bgYellow.bold\" \"npm install --prefix track-kits\" \"npm install -g json-server\" \"npm install --prefix fedex-tracker\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^6.2.1"
+  }
+}
